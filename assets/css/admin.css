@@ -1,0 +1,138 @@
+/**
+ * Theme Options Admin Styles
+ *
+ * @package WPBrigade_Challenge
+ */
+.wpbc-options-wrap {
+	max-width: 960px;
+	margin-top: 20px;
+}
+
+.wpbc-options-wrap h1 {
+	font-size: 24px;
+	font-weight: 700;
+	color: #17582c;
+	margin-bottom: 8px;
+}
+
+.wpbc-options-wrap .form-table th {
+	width: 240px;
+	font-weight: 600;
+	vertical-align: top;
+	padding-top: 20px;
+}
+
+.wpbc-options-wrap textarea {
+	font-family: Consolas, Monaco, monospace;
+	font-size: 13px;
+}
+
+.wpbc-options-wrap .submit {
+	padding-top: 20px;
+	border-top: 1px solid #ccd0d4;
+}
+
+.wpbc-options-wrap .button-primary {
+	background: #17582c;
+	border-color: #124623;
+}
+
+.wpbc-options-wrap .button-primary:hover {
+	background: #1f743a;
+	border-color: #17582c;
+}
+
+/* ==============================================================
+   Hero Slider Repeater Styles
+   ============================================================== */
+.wpbc-repeater-wrap {
+	max-width: 700px;
+}
+
+.wpbc-repeater-items {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.wpbc-repeater-item {
+	background: #ffffff;
+	border: 1px solid #ccd0d4;
+	border-left: 4px solid #17582c;
+	border-radius: 4px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+	overflow: hidden;
+}
+
+.wpbc-repeater-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 16px;
+	background: #f6f7f7;
+	border-bottom: 1px solid #ccd0d4;
+}
+
+.wpbc-slide-number {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 14px;
+	color: #1d2327;
+}
+
+.wpbc-slide-number .dashicons {
+	color: #17582c;
+}
+
+.wpbc-remove-slide-btn {
+	color: #d63638 !important;
+	border-color: #d63638 !important;
+	font-size: 12px !important;
+	height: 28px !important;
+	line-height: 26px !important;
+	padding: 0 10px !important;
+}
+
+.wpbc-remove-slide-btn:hover {
+	background: #d63638 !important;
+	color: #ffffff !important;
+}
+
+.wpbc-repeater-body {
+	padding: 16px;
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+}
+
+.wpbc-field-group {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.wpbc-field-group label {
+	font-size: 13px;
+	color: #2c3338;
+}
+
+.wpbc-media-uploader-box {
+	background: #f9f9f9;
+	border: 1px dashed #c3c4c7;
+	border-radius: 4px;
+	padding: 12px;
+}
+
+.wpbc-media-btns {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.wpbc-add-slide-btn {
+	display: inline-flex !important;
+	align-items: center !important;
+	gap: 6px !important;
+	font-weight: 600 !important;
+}

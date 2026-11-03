@@ -1,0 +1,827 @@
+/**
+ * WPBrigade Challenge - Responsive Stylesheet
+ *
+ * Implements:
+ * 1. Tablet View (1024px and 980px)
+ * 2. Mobile Homepage (max-width: 768px) matching Image 6
+ * 3. Mobile Navigation (Expanded) matching Image 7
+ * 4. Small Mobile Devices (480px, 390px, 375px, 320px)
+ */
+
+/* ==============================================================
+   1. TABLET STYLES (max-width: 1024px and 980px)
+   ============================================================== */
+@media screen and (max-width: 1024px) {
+	.homepage-two-col-grid {
+		grid-template-columns: 1fr 280px;
+		gap: 20px;
+	}
+
+	.primary-menu-list > li > a {
+		padding: 12px 14px;
+		font-size: 0.75rem;
+	}
+
+	.slide-title {
+		font-size: 2.2rem;
+	}
+
+	.sport-item-card {
+		flex: 0 0 calc(33.333% - 14px);
+	}
+
+	.latest-posts-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.footer-grid {
+		grid-template-columns: 1fr 1fr;
+		gap: 30px;
+	}
+
+	.footer-col-brand {
+		grid-column: span 2;
+	}
+}
+
+@media screen and (max-width: 980px) {
+	.homepage-two-col-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.homepage-sidebar {
+		margin-top: 30px;
+	}
+
+	.featured-card-inner {
+		grid-template-columns: 1fr;
+	}
+
+	.featured-card-media {
+		height: 240px;
+	}
+
+	.slide-video-trigger-wrap {
+		padding-right: 20px;
+	}
+}
+
+@media screen and (max-width: 980px) and (min-width: 769px) {
+	.primary-menu-list > li > a {
+		padding: 10px 8px;
+		font-size: 0.7rem;
+	}
+	.header-search-wrap {
+		max-width: 170px;
+	}
+}
+
+/* ==============================================================
+   2. DESKTOP / TABLET ONLY (HIDE MOBILE VIEWS)
+   ============================================================== */
+@media screen and (min-width: 769px) {
+	.mobile-menu-toggle,
+	.mobile-secondary-split-bar,
+	.mobile-nav-panel,
+	.mobile-footer-view {
+		display: none !important;
+	}
+}
+
+/* ==============================================================
+   3. MOBILE STYLES (max-width: 768px) — MATCHING IMAGE 6 & 7
+   ============================================================== */
+@media screen and (max-width: 768px) {
+
+	/* Top Bar */
+	.wpbc-top-bar {
+		font-size: 0.6875rem;
+		padding: 6px 0;
+	}
+
+	.notif-inner {
+		flex-direction: row;
+		justify-content: space-between;
+		padding: 0 16px;
+	}
+
+	.notif-content {
+		font-size: 0.6875rem;
+		line-height: 1.3;
+		gap: 6px;
+		flex: 1;
+	}
+
+	.notif-close {
+		width: 20px;
+		height: 20px;
+		background-color: #238343;
+		border-radius: 50%;
+		color: #ffffff;
+		padding: 2px;
+		flex-shrink: 0;
+		margin-left: 8px;
+	}
+
+	/* Header Top Bar (Brand on Left, Hamburger on Right) */
+	.header-top-bar {
+		padding: 12px 0;
+		background-color: #0b321a;
+	}
+
+	.header-top-inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0 16px;
+	}
+
+	.brand-name {
+		font-size: 1.8rem;
+		letter-spacing: -0.5px;
+	}
+
+	.secondary-navigation {
+		display: none !important;
+	}
+
+	.mobile-menu-toggle {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 5px;
+		background: none;
+		border: none;
+		cursor: pointer;
+		padding: 6px;
+	}
+
+	.mobile-menu-toggle .hamburger-bar {
+		display: block;
+		width: 24px;
+		height: 3px;
+		background-color: #ffffff;
+		border-radius: 2px;
+	}
+
+	/* Hide Desktop Main Navigation Bar */
+	.header-main-nav-bar {
+		display: none;
+	}
+
+	/* Mobile Fixed 50/50 Split Bar: MEMBERSHIP | ACCOUNT (Image 6 & 7) */
+	.mobile-secondary-split-bar {
+		display: flex !important;
+		width: 100%;
+		border-top: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	.mobile-secondary-split-bar .split-tab {
+		flex: 1;
+		font-family: var(--wpbc-font-heading);
+		font-size: 0.9375rem;
+		font-weight: 700;
+		letter-spacing: 1px;
+		text-align: center;
+		padding: 12px 10px;
+		color: #ffffff;
+		text-transform: uppercase;
+	}
+
+	.mobile-secondary-split-bar .membership-tab {
+		background-color: #007e33;
+		border-right: 1px solid rgba(0, 0, 0, 0.25);
+	}
+
+	.mobile-secondary-split-bar .account-tab {
+		background-color: #082613;
+	}
+
+	/* ==============================================================
+	   MOBILE NAVIGATION PANEL (EXPANDED STATE — IMAGE 7)
+	   ============================================================== */
+	.mobile-nav-panel {
+		position: fixed;
+		top: 110px;
+		left: 0;
+		width: 100%;
+		height: calc(100vh - 110px);
+		background-color: #0b321a;
+		background-image: radial-gradient(circle at 50% 20%, #104825 0%, #0c381d 55%, #082613 100%);
+		z-index: 99999;
+		overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	.mobile-nav-panel-inner {
+		display: flex;
+		flex-direction: column;
+		min-height: 100%;
+	}
+
+	.mobile-panel-split-bar {
+		display: none !important;
+	}
+
+	/* Mobile Search Bar in Nav Panel (Image 7) */
+	.mobile-panel-search {
+		padding: 16px 20px;
+	}
+
+	.mobile-search-form-bar {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		background-color: #052010;
+		border: 1px solid rgba(255, 255, 255, 0.15);
+		border-radius: 2px;
+		padding: 4px 14px;
+	}
+
+	.mobile-search-input {
+		background: none;
+		border: none;
+		color: #ffffff;
+		font-family: var(--wpbc-font-heading);
+		font-size: 0.9375rem;
+		letter-spacing: 1px;
+		width: 100%;
+		outline: none;
+		padding: 8px 0;
+	}
+
+	.mobile-search-input::placeholder {
+		color: #72a87d;
+	}
+
+	.mobile-search-btn {
+		background: none;
+		border: none;
+		color: #72a87d;
+		padding: 4px;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+	}
+
+	/* Mobile Vertical Menu List (Image 7) */
+	.mobile-panel-nav {
+		padding: 10px 20px 40px;
+	}
+
+	.mobile-menu-vertical {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+	}
+
+	.mobile-menu-vertical > li > a {
+		display: inline-block;
+		font-family: var(--wpbc-font-heading);
+		font-size: 1.25rem;
+		font-weight: 700;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+		color: #ffffff;
+		padding: 4px 0;
+	}
+
+	/* Angled Green Badge for OUR TRACKS (Image 7) */
+	.mobile-menu-vertical > li.is-expanded > a,
+	.mobile-menu-vertical > li:first-child > a,
+	.mobile-menu-vertical > li > a.menu-link-badge {
+		background-color: #0e7737;
+		padding: 10px 26px;
+		clip-path: polygon(0 0, 92% 0, 84% 100%, 0 100%);
+		color: #ffffff;
+		letter-spacing: 1.2px;
+	}
+
+	/* Emerald Green Submenu Panel Box (Image 7) */
+	.mobile-menu-vertical ul.sub-menu {
+		background-color: #0a8740;
+		padding: 20px 24px;
+		margin-top: 10px;
+		display: none;
+		flex-direction: column;
+		gap: 14px;
+		box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+	}
+
+	.mobile-menu-vertical li.is-expanded > ul.sub-menu {
+		display: flex;
+	}
+
+	.mobile-menu-vertical ul.sub-menu li a {
+		font-family: var(--wpbc-font-primary);
+		font-size: 0.9375rem;
+		font-weight: 600;
+		color: #ffffff;
+		text-transform: capitalize;
+		letter-spacing: 0.3px;
+	}
+
+	/* Hide Sub-header Banner on Mobile */
+	.sub-header-banner {
+		display: none !important;
+	}
+
+	/* ==============================================================
+	   MOBILE HOMEPAGE FLOW & SECTION ORDERING (IMAGE 6)
+	   ============================================================== */
+	.wpbc-main-layout-section {
+		padding: 20px 0;
+	}
+
+	.homepage-two-col-grid {
+		display: flex !important;
+		flex-direction: column;
+		gap: 0;
+	}
+
+	.homepage-primary-content,
+	.homepage-sidebar {
+		display: contents !important;
+	}
+
+	/* Exact Section Ordering matching Image 6 */
+	.latest-posts-section {
+		order: 1 !important;
+		margin-bottom: 24px;
+	}
+
+	.sidebar-widget.widget_search {
+		order: 2 !important;
+		margin-bottom: 24px;
+	}
+
+	.sidebar-widget.wpbc-events-widget {
+		order: 3 !important;
+		margin-bottom: 24px;
+	}
+
+	.sidebar-widget.wpbc-categories-widget {
+		order: 4 !important;
+		margin-bottom: 24px;
+	}
+
+	.sidebar-widget.wpbc-categories-tags-widget {
+		order: 5 !important;
+		margin-bottom: 24px;
+	}
+
+	.featured-banners-section {
+		order: 6 !important;
+		margin-bottom: 24px;
+	}
+
+	.wpbc-accordions-section {
+		order: 7 !important;
+		margin-bottom: 24px;
+	}
+
+	/* Elements NOT present on Mobile per Image 6 */
+	.social-feeds-row,
+	.match-tabs-section,
+	.wpbc-weather-widget,
+	.wpbc-datetime-widget,
+	.wpbc-newsletter-widget {
+		display: none !important;
+	}
+
+	/* Hero Slider on Mobile */
+	.hero-slider-wrapper {
+		min-height: 380px;
+	}
+
+	.slide-content-container {
+		flex-direction: column;
+		text-align: center;
+		padding: 30px 16px 40px;
+		gap: 20px;
+	}
+
+	.slide-title {
+		font-size: 1.8rem;
+		line-height: 1.15;
+		margin-bottom: 12px;
+	}
+
+	.slide-description p {
+		font-size: 0.875rem;
+		line-height: 1.5;
+	}
+
+	.slide-video-trigger-wrap {
+		padding-right: 0;
+	}
+
+	.slide-video-play-btn {
+		width: 60px;
+		height: 60px;
+	}
+
+	.play-icon-triangle {
+		border-top-width: 10px;
+		border-bottom-width: 10px;
+		border-left-width: 18px;
+	}
+
+	.slider-arrow {
+		display: none; /* Mobile uses swipe or indicator dots */
+	}
+
+	.slider-dots {
+		bottom: 14px;
+	}
+
+	/* Sports Category Carousel (Single Framed Shoe Card per Image 6) */
+	.wpbc-sports-carousel-section {
+		padding: 20px 0;
+		background: transparent;
+		border: none;
+	}
+
+	.sports-carousel-container {
+		justify-content: center;
+	}
+
+	.sports-track-wrapper {
+		overflow: visible;
+		width: 100%;
+		max-width: 320px;
+		margin: 0 auto;
+	}
+
+	.sports-track {
+		display: block;
+	}
+
+	.sport-item-card {
+		background-color: #ffffff;
+		border: 4px solid #14552b;
+		padding: 24px 16px;
+		margin: 0 auto;
+		box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+	}
+
+	.sport-item-card:not(:first-child) {
+		display: none; /* Show single featured product preview card on mobile */
+	}
+
+	.sport-thumb-wrap {
+		height: 170px;
+		background: none;
+		margin-bottom: 0;
+	}
+
+	.sport-thumb-wrap img {
+		object-fit: contain;
+	}
+
+	.sport-title {
+		display: none;
+	}
+
+	.carousel-arrow,
+	.carousel-indicators {
+		display: none;
+	}
+
+	/* 3 Latest Post Cards on Mobile */
+	.latest-posts-grid {
+		grid-template-columns: 1fr;
+		gap: 20px;
+	}
+
+	.wpbc-post-card {
+		border: 1px solid rgba(255, 255, 255, 0.15);
+	}
+
+	.post-card-thumb {
+		background-color: #ffffff;
+		padding: 24px;
+		height: 170px;
+	}
+
+	.post-card-thumb img {
+		max-height: 130px;
+	}
+
+	.post-card-body {
+		background-color: #124d26;
+		padding: 18px 16px;
+	}
+
+	.post-card-title {
+		font-size: 1.15rem;
+		font-weight: 700;
+		color: #ffffff;
+		margin-bottom: 8px;
+	}
+
+	.post-card-excerpt {
+		font-size: 0.8125rem;
+		color: #d1ead6;
+		line-height: 1.5;
+		margin-bottom: 14px;
+	}
+
+	.wpbc-read-more-btn {
+		background-color: #0b311a;
+		border: 1px solid rgba(255, 255, 255, 0.15);
+		font-size: 0.8125rem;
+		padding: 10px;
+	}
+
+	/* Search Widget on Mobile (Image 6) */
+	.sidebar-widget.widget_search {
+		background-color: #124d26;
+		padding: 18px 16px;
+		border: 1px solid rgba(255, 255, 255, 0.15);
+	}
+
+	.sidebar-widget.widget_search .widget-title {
+		font-size: 1.15rem;
+		color: #ffffff;
+		margin-bottom: 12px;
+	}
+
+	.search-field-sidebar {
+		background-color: #ffffff;
+		color: #222222;
+		padding: 10px 14px;
+		font-size: 0.875rem;
+	}
+
+	.search-submit-sidebar {
+		background-color: #0b311a;
+		color: #ffffff;
+		font-size: 0.8125rem;
+		padding: 8px 18px;
+		align-self: flex-end;
+		margin-top: 6px;
+	}
+
+	/* Events Widget on Mobile (Image 6: Numbered Badges 1, 2, 3, 4) */
+	.sidebar-widget.wpbc-events-widget {
+		background-color: #124d26;
+		padding: 18px 16px;
+		border: 1px solid rgba(255, 255, 255, 0.15);
+	}
+
+	.event-row-item {
+		background-color: #0e3d1e;
+		padding: 10px 12px;
+		gap: 12px;
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		display: flex;
+		align-items: center;
+	}
+
+	.event-number-badge {
+		width: 32px;
+		height: 32px;
+		background-color: #ffffff;
+		color: #124d26;
+		font-family: var(--wpbc-font-heading);
+		font-size: 1.1rem;
+		font-weight: 700;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+	}
+
+	.event-row-item .event-thumb {
+		display: none; /* Image 6 displays the white numbered badge */
+	}
+
+	.event-item-title {
+		font-size: 0.875rem;
+		font-weight: 700;
+		color: #ffffff;
+		margin-bottom: 2px;
+	}
+
+	.event-item-date,
+	.event-item-time {
+		font-size: 0.6875rem;
+		color: #a4cca9;
+	}
+
+	.events-widget-footer {
+		display: none;
+	}
+
+	/* Categories Widgets on Mobile (Image 6) */
+	.sidebar-widget.wpbc-categories-widget,
+	.sidebar-widget.wpbc-categories-tags-widget {
+		background-color: #124d26;
+		padding: 18px 16px;
+		border: 1px solid rgba(255, 255, 255, 0.15);
+	}
+
+	.wpbc-cat-accordion li a.cat-link {
+		font-size: 0.875rem;
+		padding: 8px 0;
+		color: #ffffff;
+	}
+
+	.categories-tags-cloud {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+	}
+
+	.cat-pill {
+		background-color: #17582c;
+		border: 1px solid rgba(255, 255, 255, 0.2);
+		color: #ffffff;
+		font-size: 0.75rem;
+		font-weight: 600;
+		padding: 4px 12px;
+		border-radius: 2px;
+	}
+
+	/* Featured Banners on Mobile (Image 6) */
+	.featured-banners-section {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	.featured-post-card {
+		background-color: #124d26;
+		border: 1px solid rgba(255, 255, 255, 0.15);
+		margin-bottom: 0;
+	}
+
+	.featured-card-inner {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.featured-card-media {
+		height: 200px;
+		width: 100%;
+	}
+
+	.featured-card-media img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.featured-card-content {
+		padding: 18px 16px;
+	}
+
+	.featured-title {
+		font-size: 1.15rem;
+		color: #ffffff;
+		margin-bottom: 8px;
+	}
+
+	.featured-excerpt {
+		font-size: 0.8125rem;
+		color: #d1ead6;
+		line-height: 1.5;
+	}
+
+	/* Accordions on Mobile (Image 6) */
+	.wpbc-accordions-section {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	.accordion-item {
+		background-color: #124d26;
+		border: 1px solid rgba(255, 255, 255, 0.15);
+	}
+
+	.accordion-header {
+		font-size: 0.8125rem;
+		font-weight: 700;
+		padding: 14px 16px;
+	}
+
+	.accordion-content {
+		padding: 0 16px 16px;
+		font-size: 0.8125rem;
+		color: #d1ead6;
+		line-height: 1.6;
+	}
+
+	/* Contact Form on Mobile (Image 6) */
+	.wpbc-contact-section {
+		padding: 30px 0;
+		background-color: transparent;
+		border-top: none;
+	}
+
+	.contact-section-title {
+		font-size: 1.4rem;
+		margin-bottom: 20px;
+	}
+
+	.form-row-2col {
+		grid-template-columns: 1fr;
+		gap: 12px;
+	}
+
+	.form-group label {
+		font-size: 0.75rem;
+	}
+
+	.gender-group .radio-options {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 20px;
+	}
+
+	.contact-submit-btn {
+		width: 140px;
+		padding: 10px 0;
+	}
+
+	/* Mobile Footer (Image 6) */
+	.footer-main-inner {
+		padding: 30px 16px 24px;
+	}
+
+	.footer-grid {
+		display: none !important;
+	}
+
+	.mobile-footer-view {
+		display: flex !important;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		gap: 16px;
+	}
+
+	.mobile-footer-nav {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		gap: 6px;
+		font-size: 0.75rem;
+		font-weight: 700;
+		color: #ffffff;
+	}
+
+	.mobile-footer-nav a {
+		color: #ffffff;
+	}
+
+	.mobile-footer-nav .sep {
+		color: rgba(255, 255, 255, 0.4);
+	}
+
+	.mobile-footer-social {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 16px;
+		color: #ffffff;
+	}
+
+	.mobile-footer-social a {
+		color: #ffffff;
+		display: flex;
+		align-items: center;
+	}
+
+	.mobile-footer-copyright {
+		font-size: 0.75rem;
+		color: #8bbd94;
+	}
+}
+
+/* ==============================================================
+   4. SMALL MOBILE STYLES (max-width: 480px, 375px, 320px)
+   ============================================================== */
+@media screen and (max-width: 480px) {
+	.brand-name {
+		font-size: 1.6rem;
+	}
+
+	.slide-title {
+		font-size: 1.5rem;
+	}
+
+	.mobile-secondary-split-bar .split-tab,
+	.mobile-panel-split-bar .split-tab {
+		font-size: 0.8125rem;
+		padding: 10px 6px;
+	}
+
+	.mobile-menu-vertical > li > a {
+		font-size: 1.1rem;
+	}
+}

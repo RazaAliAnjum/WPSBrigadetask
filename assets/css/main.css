@@ -1,0 +1,1760 @@
+/**
+ * WPBrigade Challenge - Main Stylesheet
+ *
+ * Dark green Adidas-themed sports styling
+ */
+
+/* ==============================================================
+   1. CSS VARIABLES & RESET
+   ============================================================== */
+:root {
+	--wpbc-bg-dark: #082613;
+	--wpbc-bg-grass: #0d381e;
+	--wpbc-bg-panel: #144f29;
+	--wpbc-bg-card: #185a30;
+	--wpbc-bg-accent: #238343;
+	--wpbc-bg-bright: #2ca756;
+	--wpbc-nav-bg: #1d6e37;
+	--wpbc-dropdown-bg: #17582c;
+	--wpbc-dropdown-hover: #104220;
+
+	--wpbc-text-white: #ffffff;
+	--wpbc-text-dim: #f0f7f2;
+	--wpbc-text-muted: #b8dfbf;
+	--wpbc-text-dark: #222222;
+
+	--wpbc-border-color: rgba(255, 255, 255, 0.15);
+	--wpbc-border-light: rgba(255, 255, 255, 0.25);
+
+	--wpbc-font-primary: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	--wpbc-font-heading: "Oswald", "Montserrat", "Trebuchet MS", "Arial Black", sans-serif;
+	--wpbc-container-max: 1200px;
+}
+
+*, *::before, *::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 16px;
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: var(--wpbc-font-primary);
+	background-color: #0b321a;
+	background-image: radial-gradient(circle at 50% 20%, #114c27 0%, #0c381d 55%, #082613 100%);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	color: #ffffff;
+	line-height: 1.6;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+	transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+a:hover, a:focus {
+	opacity: 0.85;
+}
+
+ul, ol {
+	list-style: none;
+}
+
+button, input, select, textarea {
+	font-family: inherit;
+	font-size: inherit;
+}
+
+/* Container */
+.wpbc-container {
+	width: 100%;
+	max-width: var(--wpbc-container-max);
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.screen-reader-text {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+}
+
+/* ==============================================================
+   2. TOP ANNOUNCEMENT BAR
+   ============================================================== */
+.wpbc-top-bar {
+	background-color: #ffffff;
+	color: #222222;
+	font-size: 0.8125rem;
+	font-weight: 700;
+	letter-spacing: 0.5px;
+	padding: 6px 0;
+	border-bottom: 1px solid #e0e0e0;
+	position: relative;
+	z-index: 100;
+}
+
+.notif-inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.notif-content {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	flex-wrap: wrap;
+}
+
+.notif-divider {
+	color: #888888;
+}
+
+.notif-link {
+	color: #17582c;
+	text-decoration: underline;
+	text-underline-offset: 3px;
+	font-weight: 800;
+}
+
+.notif-close {
+	background: none;
+	border: none;
+	cursor: pointer;
+	color: #333333;
+	padding: 4px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* ==============================================================
+   3. SITE HEADER & NAVIGATION (3-LEVEL DROPDOWN)
+   ============================================================== */
+.site-header {
+	position: relative;
+	z-index: 90;
+}
+
+.header-top-bar {
+	background-color: #0b311a;
+	padding: 16px 0;
+}
+
+.header-top-inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.brand-adidas-logo {
+	display: inline-flex;
+	align-items: center;
+	gap: 12px;
+	color: #ffffff;
+}
+
+.brand-name {
+	font-size: 2.2rem;
+	font-weight: 900;
+	letter-spacing: -1px;
+	font-family: var(--wpbc-font-heading);
+	text-transform: lowercase;
+}
+
+.secondary-menu {
+	display: flex;
+	gap: 12px;
+}
+
+.secondary-menu li a {
+	display: inline-block;
+	background-color: #135228;
+	color: #ffffff;
+	font-size: 0.75rem;
+	font-weight: 800;
+	letter-spacing: 1px;
+	padding: 6px 16px;
+	border-radius: 2px;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.secondary-menu li a:hover {
+	background-color: var(--wpbc-bg-bright);
+}
+
+/* Primary Nav Bar */
+.header-main-nav-bar {
+	background-color: var(--wpbc-nav-bg);
+	border-top: 1px solid rgba(255, 255, 255, 0.12);
+	border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.header-nav-inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	position: relative;
+}
+
+.mobile-menu-toggle {
+	display: none;
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 12px 0;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.mobile-menu-toggle .hamburger-bar {
+	display: block;
+	width: 26px;
+	height: 3px;
+	background-color: #ffffff;
+	border-radius: 2px;
+	transition: 0.3s;
+}
+
+.main-navigation {
+	flex: 1;
+}
+
+.primary-menu-list {
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+
+.primary-menu-list > li {
+	position: relative;
+}
+
+.primary-menu-list > li > a {
+	display: block;
+	padding: 14px 20px;
+	color: #ffffff;
+	font-size: 0.8125rem;
+	font-weight: 800;
+	letter-spacing: 0.8px;
+	text-transform: uppercase;
+	position: relative;
+}
+
+.primary-menu-list > li.current-menu-item > a,
+.primary-menu-list > li:hover > a {
+	background-color: var(--wpbc-dropdown-bg);
+}
+
+.primary-menu-list > li.current-menu-item > a::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 6px;
+	height: 6px;
+	background-color: #ffffff;
+	border-radius: 50%;
+}
+
+/* Level 1 Submenu (Dropdown) */
+.primary-menu-list ul.sub-menu {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	min-width: 200px;
+	background-color: var(--wpbc-dropdown-bg);
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+	display: none;
+	flex-direction: column;
+	z-index: 100;
+}
+
+.primary-menu-list li:hover > ul.sub-menu {
+	display: flex;
+}
+
+.primary-menu-list ul.sub-menu li {
+	position: relative;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.primary-menu-list ul.sub-menu li a {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 10px 16px;
+	color: #ffffff;
+	font-size: 0.8125rem;
+	font-weight: 600;
+	white-space: nowrap;
+}
+
+.primary-menu-list ul.sub-menu li:hover > a {
+	background-color: var(--wpbc-dropdown-hover);
+}
+
+/* Level 2 Submenu (Nested rightwards) */
+.primary-menu-list ul.sub-menu ul.sub-menu {
+	top: 0;
+	left: 100%;
+	background-color: #124d26;
+}
+
+.submenu-arrow {
+	display: inline-flex;
+	margin-left: 12px;
+	opacity: 0.8;
+}
+
+.mobile-submenu-toggle {
+	display: none;
+}
+
+/* Header Search */
+.header-search-wrap {
+	display: flex;
+	align-items: center;
+}
+
+.header-search-form {
+	display: flex;
+	align-items: center;
+	background-color: #124d26;
+	border: 1px solid rgba(255, 255, 255, 0.15);
+	border-radius: 2px;
+	overflow: hidden;
+}
+
+.header-search-field {
+	background: none;
+	border: none;
+	color: #ffffff;
+	padding: 6px 12px;
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.5px;
+	outline: none;
+	width: 140px;
+}
+
+.header-search-field::placeholder {
+	color: rgba(255, 255, 255, 0.6);
+}
+
+.header-search-submit {
+	background: none;
+	border: none;
+	color: #ffffff;
+	padding: 6px 10px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+}
+
+/* Sub-header Banner (HOME PAGE / PARTNERED BY Reebok) */
+.sub-header-banner {
+	background-color: #ffffff;
+	color: #1a582e;
+	padding: 14px 0;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sub-header-inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.page-title-banner {
+	font-family: var(--wpbc-font-heading);
+	font-size: 1.8rem;
+	font-weight: 900;
+	letter-spacing: -0.5px;
+	color: #1b6334;
+}
+
+.partnership-logo {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.partner-label {
+	font-size: 0.6875rem;
+	font-weight: 800;
+	color: #666666;
+	letter-spacing: 0.5px;
+}
+
+.reebok-logo-img {
+	height: 22px;
+	width: auto;
+}
+
+/* ==============================================================
+   4. HERO SLIDER
+   ============================================================== */
+.wpbc-hero-slider-section {
+	position: relative;
+	background-color: #0b2e18;
+	overflow: hidden;
+}
+
+.hero-slider-wrapper {
+	position: relative;
+	min-height: 480px;
+}
+
+.hero-slide {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.6s ease-in-out, visibility 0.6s;
+	display: flex;
+	align-items: center;
+}
+
+.hero-slide.is-active {
+	opacity: 1;
+	visibility: visible;
+	position: relative;
+	min-height: 480px;
+}
+
+.slide-bg-image {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-position: center;
+	z-index: 1;
+}
+
+.slide-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(90deg, rgba(10, 45, 23, 0.85) 0%, rgba(10, 45, 23, 0.6) 50%, rgba(10, 45, 23, 0.2) 100%);
+	z-index: 2;
+}
+
+.slide-content-container {
+	position: relative;
+	z-index: 3;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-top: 60px;
+	padding-bottom: 60px;
+	width: 100%;
+}
+
+.slide-text-box {
+	max-width: 580px;
+	color: #ffffff;
+}
+
+.slide-title {
+	font-family: var(--wpbc-font-heading);
+	font-size: 2.8rem;
+	font-weight: 900;
+	line-height: 1.1;
+	letter-spacing: -0.5px;
+	margin-bottom: 20px;
+	text-transform: uppercase;
+}
+
+.slide-description p {
+	font-size: 1rem;
+	line-height: 1.6;
+	color: #d1ead6;
+}
+
+/* Video Play Button */
+.slide-video-trigger-wrap {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-right: 80px;
+}
+
+.slide-video-play-btn {
+	width: 80px;
+	height: 80px;
+	background-color: #ffffff;
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.slide-video-play-btn:hover {
+	transform: scale(1.1);
+	box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+}
+
+.play-icon-triangle {
+	display: inline-block;
+	width: 0;
+	height: 0;
+	border-top: 14px solid transparent;
+	border-bottom: 14px solid transparent;
+	border-left: 24px solid #14552b;
+	margin-left: 6px;
+}
+
+/* Slider Controls */
+.slider-arrow {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 10;
+	background: none;
+	border: none;
+	color: #ffffff;
+	cursor: pointer;
+	padding: 10px;
+	opacity: 0.75;
+	transition: opacity 0.2s;
+}
+
+.slider-arrow:hover {
+	opacity: 1;
+}
+
+.slider-prev {
+	left: 20px;
+}
+
+.slider-next {
+	right: 20px;
+}
+
+.slider-dots {
+	position: absolute;
+	bottom: 20px;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 10;
+	display: flex;
+	gap: 10px;
+}
+
+.slider-dots .dot {
+	width: 24px;
+	height: 4px;
+	background-color: rgba(255, 255, 255, 0.4);
+	border: none;
+	border-radius: 2px;
+	cursor: pointer;
+	transition: background-color 0.2s;
+}
+
+.slider-dots .dot.is-active {
+	background-color: #ffffff;
+}
+
+/* ==============================================================
+   5. SPORTS CAROUSEL (10 ITEMS)
+   ============================================================== */
+.wpbc-sports-carousel-section {
+	padding: 30px 0 20px;
+	background-color: rgba(9, 41, 20, 0.85);
+	border-top: 1px solid rgba(255, 255, 255, 0.08);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sports-carousel-container {
+	display: flex;
+	align-items: center;
+	position: relative;
+	gap: 15px;
+}
+
+.carousel-arrow {
+	background: none;
+	border: none;
+	color: #ffffff;
+	cursor: pointer;
+	padding: 8px;
+	opacity: 0.8;
+	flex-shrink: 0;
+	transition: opacity 0.2s;
+}
+
+.carousel-arrow:hover {
+	opacity: 1;
+}
+
+.sports-track-wrapper {
+	overflow: hidden;
+	width: 100%;
+}
+
+.sports-track {
+	display: flex;
+	gap: 20px;
+	transition: transform 0.4s ease-in-out;
+}
+
+.sport-item-card {
+	flex: 0 0 calc(25% - 15px);
+	background-color: #124d26;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	padding: 12px;
+	text-align: center;
+	transition: transform 0.2s, background-color 0.2s;
+}
+
+.sport-item-card:hover {
+	transform: translateY(-3px);
+	background-color: #176131;
+}
+
+.sport-thumb-wrap {
+	width: 100%;
+	height: 140px;
+	overflow: hidden;
+	margin-bottom: 10px;
+	background-color: #0b311a;
+}
+
+.sport-thumb-wrap img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.sport-title {
+	font-size: 0.875rem;
+	font-weight: 700;
+	color: #ffffff;
+	text-transform: capitalize;
+}
+
+.carousel-indicators {
+	display: flex;
+	justify-content: center;
+	gap: 8px;
+	margin-top: 16px;
+}
+
+.carousel-indicators .indicator {
+	width: 20px;
+	height: 4px;
+	background-color: rgba(255, 255, 255, 0.3);
+	border-radius: 2px;
+}
+
+.carousel-indicators .indicator.is-active {
+	background-color: #ffffff;
+}
+
+/* ==============================================================
+   6. MAIN TWO-COLUMN SECTION & SIDEBAR
+   ============================================================== */
+.wpbc-main-layout-section {
+	padding: 40px 0;
+}
+
+.homepage-two-col-grid {
+	display: grid;
+	grid-template-columns: 1fr 320px;
+	gap: 30px;
+	align-items: start;
+}
+
+/* FEATURED POST CARD (RANDOM STICKY) */
+.featured-post-card {
+	background-color: var(--wpbc-bg-card);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	margin-bottom: 30px;
+	overflow: hidden;
+}
+
+.featured-card-inner {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	align-items: center;
+}
+
+.featured-card-content {
+	padding: 30px;
+}
+
+.featured-title {
+	font-family: var(--wpbc-font-heading);
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: #ffffff;
+	line-height: 1.25;
+	margin-bottom: 12px;
+	letter-spacing: 0.5px;
+	text-transform: uppercase;
+}
+
+.featured-excerpt {
+	font-size: 0.9375rem;
+	color: #f0f7f2;
+	line-height: 1.6;
+}
+
+.featured-card-media {
+	height: 100%;
+	background-color: #0d381e;
+	overflow: hidden;
+}
+
+.featured-card-media img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* 3 LATEST POSTS */
+.latest-posts-section {
+	margin-bottom: 35px;
+}
+
+.latest-posts-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px;
+}
+
+.wpbc-post-card {
+	background-color: var(--wpbc-bg-card);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	display: flex;
+	flex-direction: column;
+}
+
+.post-card-thumb {
+	background-color: #ffffff;
+	padding: 20px;
+	text-align: center;
+	height: 180px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+
+.post-card-thumb img {
+	max-height: 140px;
+	width: auto;
+	object-fit: contain;
+}
+
+.post-card-body {
+	padding: 16px;
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+}
+
+.post-card-title {
+	font-family: var(--wpbc-font-heading);
+	font-size: 1.15rem;
+	font-weight: 700;
+	color: #ffffff;
+	line-height: 1.3;
+	letter-spacing: 0.5px;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+}
+
+.post-card-excerpt {
+	font-size: 0.875rem;
+	color: #f0f7f2;
+	line-height: 1.6;
+	margin-bottom: 16px;
+	flex: 1;
+}
+
+.post-card-footer {
+	margin-top: auto;
+}
+
+.wpbc-read-more-btn {
+	display: block;
+	background-color: #124d26;
+	color: #ffffff;
+	font-family: var(--wpbc-font-heading);
+	font-size: 0.875rem;
+	font-weight: 700;
+	letter-spacing: 1px;
+	text-align: center;
+	padding: 10px;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	transition: background-color 0.2s;
+}
+
+.wpbc-read-more-btn:hover {
+	background-color: var(--wpbc-bg-bright);
+}
+
+/* SOCIAL FEEDS (TWITTER & FACEBOOK) */
+.social-feeds-row {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 25px;
+	margin-bottom: 35px;
+}
+
+.social-block-title {
+	font-family: var(--wpbc-font-heading);
+	font-size: 1.2rem;
+	font-weight: 800;
+	color: #ffffff;
+	margin-bottom: 14px;
+	text-transform: uppercase;
+}
+
+/* Twitter Feed Card */
+.twitter-feed-card {
+	background-color: #ffffff;
+	color: #333333;
+	padding: 20px;
+	font-size: 0.8125rem;
+	line-height: 1.5;
+}
+
+.tweet-item {
+	margin-bottom: 14px;
+	padding-bottom: 14px;
+	border-bottom: 1px solid #eeeeee;
+}
+
+.tweet-item:last-child {
+	margin-bottom: 0;
+	padding-bottom: 0;
+	border-bottom: none;
+}
+
+.tweet-item a {
+	color: #1da1f2;
+}
+
+/* Facebook Page Card */
+.facebook-page-card {
+	background-color: #ffffff;
+	color: #333333;
+	padding: 20px;
+}
+
+.fb-card-header {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin-bottom: 12px;
+}
+
+.fb-avatar {
+	width: 44px;
+	height: 44px;
+	border-radius: 50%;
+	overflow: hidden;
+	background-color: #14552b;
+}
+
+.fb-avatar img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.fb-title {
+	font-size: 0.9375rem;
+	font-weight: 800;
+	color: #3b5998;
+	margin-bottom: 4px;
+}
+
+.fb-like-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	background-color: #f5f6f7;
+	border: 1px solid #ced0d4;
+	color: #4b4f56;
+	font-size: 0.6875rem;
+	font-weight: 700;
+	padding: 2px 8px;
+	border-radius: 2px;
+}
+
+.fb-likes-count {
+	font-size: 0.75rem;
+	color: #888888;
+	margin-bottom: 12px;
+}
+
+.fb-faces-grid {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 6px;
+}
+
+.fb-face-cell {
+	aspect-ratio: 1;
+	background-color: #e5e5e5;
+}
+
+/* TABBED CONTENT (Match Info / Results / Schedule) */
+.match-tabs-section {
+	background-color: var(--wpbc-bg-card);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	margin-bottom: 35px;
+}
+
+.tabs-nav-bar {
+	display: flex;
+	background-color: #114421;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tab-btn {
+	background: none;
+	border: none;
+	color: #ffffff;
+	font-size: 0.8125rem;
+	font-weight: 800;
+	letter-spacing: 0.5px;
+	padding: 12px 24px;
+	cursor: pointer;
+	border-right: 1px solid rgba(255, 255, 255, 0.08);
+	transition: background-color 0.2s;
+}
+
+.tab-btn.is-active {
+	background-color: var(--wpbc-bg-card);
+	color: #ffffff;
+}
+
+.tabs-content-panels {
+	padding: 24px;
+	font-size: 0.875rem;
+	line-height: 1.7;
+	color: #d8eedb;
+}
+
+/* ACCORDIONS SECTION */
+.wpbc-accordions-section {
+	margin-bottom: 35px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.accordion-item {
+	background-color: var(--wpbc-bg-card);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.accordion-header {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background: none;
+	border: none;
+	color: #ffffff;
+	font-size: 0.875rem;
+	font-weight: 700;
+	padding: 14px 20px;
+	cursor: pointer;
+	text-align: left;
+}
+
+.acc-chevron svg {
+	transition: transform 0.3s ease;
+}
+
+.accordion-item.is-open .acc-chevron svg {
+	transform: rotate(180deg);
+}
+
+.accordion-content {
+	padding: 0 20px 16px;
+	font-size: 0.8125rem;
+	line-height: 1.6;
+	color: #d1ead6;
+}
+
+/* ==============================================================
+   7. SIDEBAR WIDGETS
+   ============================================================== */
+.homepage-sidebar {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+}
+
+.sidebar-widget {
+	background-color: var(--wpbc-bg-panel);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	padding: 18px;
+}
+
+.wpbc-widget-header {
+	margin-bottom: 14px;
+}
+
+.wpbc-widget-header .widget-title {
+	font-family: var(--wpbc-font-heading);
+	font-size: 1.25rem;
+	font-weight: 700;
+	color: #ffffff;
+	text-transform: uppercase;
+	letter-spacing: 0.8px;
+}
+
+/* Search Widget */
+.sidebar-search-card .search-form-sidebar {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.search-field-sidebar {
+	width: 100%;
+	background-color: #ffffff;
+	border: none;
+	padding: 10px 14px;
+	font-size: 0.8125rem;
+	color: #222222;
+	outline: none;
+}
+
+.search-submit-sidebar {
+	background-color: #124d26;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	color: #ffffff;
+	font-size: 0.75rem;
+	font-weight: 800;
+	letter-spacing: 1px;
+	padding: 10px;
+	cursor: pointer;
+	transition: background-color 0.2s;
+}
+
+.search-submit-sidebar:hover {
+	background-color: var(--wpbc-bg-bright);
+}
+
+/* Events Widget with AJAX */
+.events-list-wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	margin-bottom: 14px;
+}
+
+.event-row-item {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	background-color: #0e3d1e;
+	padding: 8px;
+	border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.event-thumb {
+	width: 60px;
+	height: 60px;
+	flex-shrink: 0;
+	overflow: hidden;
+}
+
+.event-thumb img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.event-meta-info {
+	display: flex;
+	flex-direction: column;
+	font-size: 0.75rem;
+}
+
+.event-item-title {
+	font-family: var(--wpbc-font-heading);
+	font-size: 0.9375rem;
+	font-weight: 700;
+	color: #ffffff;
+	line-height: 1.3;
+	letter-spacing: 0.5px;
+	margin-bottom: 3px;
+	text-transform: uppercase;
+}
+
+.event-item-date {
+	color: #e2f2e5;
+	font-size: 0.75rem;
+	font-weight: 500;
+}
+
+.event-item-time {
+	color: #b0d8b7;
+	font-size: 0.75rem;
+}
+
+.events-widget-footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-top: 8px;
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.events-ajax-pagination {
+	display: flex;
+	gap: 6px;
+}
+
+.events-nav-btn {
+	background-color: #124d26;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	color: #ffffff;
+	width: 26px;
+	height: 26px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.events-nav-btn:disabled {
+	opacity: 0.4;
+	cursor: not-allowed;
+}
+
+.more-events-link {
+	font-size: 0.75rem;
+	font-weight: 700;
+	color: #ffffff;
+	text-decoration: underline;
+}
+
+/* Categories Widget (with Clickable Sub-categories) */
+.wpbc-cat-accordion {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.cat-parent-row {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	padding: 3px 0;
+}
+
+.cat-chevron-btn {
+	background: none;
+	border: none;
+	padding: 0 4px 0 0;
+	margin: 0;
+	cursor: pointer;
+	color: #2ca756;
+	font-size: 1.05rem;
+	font-weight: 900;
+	line-height: 1;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.cat-chevron-btn .chevron {
+	display: inline-block;
+	transition: transform 0.2s ease;
+	font-weight: 900;
+	color: #2ca756;
+}
+
+.cat-item.is-expanded .cat-chevron-btn .chevron {
+	transform: rotate(90deg);
+}
+
+.cat-chevron-btn:disabled {
+	cursor: default;
+	opacity: 0.9;
+}
+
+.wpbc-cat-accordion li a.cat-link {
+	display: flex;
+	align-items: center;
+	color: #ffffff;
+	font-size: 0.8125rem;
+	font-weight: 700;
+	padding: 3px 0;
+}
+
+.wpbc-cat-accordion .chevron {
+	font-weight: 900;
+	color: #2ca756;
+}
+
+.cat-children-list {
+	padding-left: 20px;
+	display: none;
+	flex-direction: column;
+	gap: 4px;
+	margin-top: 4px;
+}
+
+.cat-item.is-expanded .cat-children-list {
+	display: flex;
+}
+
+.cat-children-list a {
+	color: #b2dbb9;
+	font-size: 0.75rem;
+	padding: 3px 0;
+}
+
+/* Weather Widget */
+.weather-card {
+	background-color: #0b311a;
+	padding: 16px;
+	border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.weather-main-row {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	margin-bottom: 12px;
+}
+
+.weather-city-time {
+	display: flex;
+	flex-direction: column;
+}
+
+.weather-day-time {
+	font-size: 0.75rem;
+	color: #9eccaa;
+}
+
+.weather-time-val {
+	font-weight: 800;
+	color: #ffffff;
+}
+
+.weather-city-name {
+	font-size: 0.8125rem;
+	font-weight: 700;
+	color: #ffffff;
+}
+
+.weather-temp-row {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+}
+
+.weather-temp-huge {
+	font-size: 2.2rem;
+	font-weight: 900;
+	color: #ffffff;
+	line-height: 1;
+}
+
+.weather-forecast-days {
+	display: flex;
+	gap: 10px;
+}
+
+.forecast-col {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: 0.625rem;
+	gap: 2px;
+}
+
+.forecast-col .f-day {
+	font-weight: 700;
+	color: #8bbd94;
+}
+
+.forecast-col .f-temp {
+	color: #ffffff;
+}
+
+.forecast-col .f-stat {
+	color: #8bbd94;
+}
+
+/* Date & Time Widget (Live Clock) */
+.datetime-card {
+	background-color: #0b311a;
+	padding: 16px;
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	text-align: center;
+}
+
+.datetime-date-line {
+	font-size: 0.75rem;
+	font-weight: 600;
+	color: #a4cca9;
+	margin-bottom: 6px;
+}
+
+.datetime-time-digital {
+	font-family: var(--wpbc-font-heading);
+	font-size: 2rem;
+	font-weight: 900;
+	color: #ffffff;
+	letter-spacing: 2px;
+	line-height: 1.1;
+	margin-bottom: 4px;
+}
+
+.datetime-city-line {
+	font-size: 0.75rem;
+	color: #8bbd94;
+}
+
+/* Newsletter Widget */
+.newsletter-card form {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.newsletter-input-group {
+	display: flex;
+	background-color: #ffffff;
+}
+
+.newsletter-email-input {
+	flex: 1;
+	border: none;
+	padding: 10px 12px;
+	font-size: 0.8125rem;
+	outline: none;
+	color: #222222;
+}
+
+.newsletter-inline-submit {
+	background: none;
+	border: none;
+	padding: 0 10px;
+	cursor: pointer;
+	color: #14552b;
+}
+
+.newsletter-btn-block {
+	background-color: #124d26;
+	color: #ffffff;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	font-size: 0.75rem;
+	font-weight: 800;
+	letter-spacing: 1px;
+	padding: 10px;
+	cursor: pointer;
+	transition: background-color 0.2s;
+}
+
+.newsletter-btn-block:hover {
+	background-color: var(--wpbc-bg-bright);
+}
+
+.newsletter-response {
+	font-size: 0.75rem;
+	padding: 6px;
+	border-radius: 2px;
+}
+
+/* ==============================================================
+   8. GET IN TOUCH WITH US CONTACT FORM
+   ============================================================== */
+.wpbc-contact-section {
+	padding: 50px 0;
+	background-color: rgba(9, 41, 20, 0.9);
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-section-inner {
+	max-width: 640px;
+	margin: 0 auto;
+}
+
+.contact-section-title {
+	font-family: var(--wpbc-font-heading);
+	font-size: 1.8rem;
+	font-weight: 900;
+	color: #ffffff;
+	text-align: center;
+	margin-bottom: 30px;
+	text-transform: uppercase;
+}
+
+.wpbc-contact-form {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.form-row-2col {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 16px;
+}
+
+.form-group {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.form-group label {
+	font-size: 0.75rem;
+	font-weight: 800;
+	color: #ffffff;
+	letter-spacing: 0.5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group select,
+.form-group textarea {
+	width: 100%;
+	background-color: #ffffff;
+	border: 1px solid #cccccc;
+	padding: 10px 14px;
+	font-size: 0.8125rem;
+	color: #222222;
+	outline: none;
+	border-radius: 2px;
+}
+
+.custom-select-wrap {
+	position: relative;
+}
+
+.gender-group .radio-options {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	padding-top: 4px;
+}
+
+.radio-label {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 0.8125rem;
+	color: #ffffff;
+	cursor: pointer;
+}
+
+.radio-label input[type="radio"] {
+	accent-color: #2ca756;
+	cursor: pointer;
+}
+
+.form-submit-row {
+	text-align: center;
+	margin-top: 10px;
+}
+
+.contact-submit-btn {
+	background-color: #124d26;
+	color: #ffffff;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	font-size: 0.8125rem;
+	font-weight: 800;
+	letter-spacing: 1px;
+	padding: 12px 40px;
+	cursor: pointer;
+	border-radius: 2px;
+	transition: background-color 0.2s;
+}
+
+.contact-submit-btn:hover {
+	background-color: var(--wpbc-bg-bright);
+}
+
+/* ==============================================================
+   9. FOOTER
+   ============================================================== */
+.site-footer {
+	background-color: #072111;
+	border-top: 2px solid rgba(255, 255, 255, 0.08);
+	color: #d1ead6;
+}
+
+.footer-main-inner {
+	padding: 50px 20px 40px;
+}
+
+.footer-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1.2fr;
+	gap: 40px;
+}
+
+.footer-title {
+	font-family: var(--wpbc-font-heading);
+	font-size: 1.125rem;
+	font-weight: 800;
+	color: #ffffff;
+	margin-bottom: 16px;
+	text-transform: uppercase;
+}
+
+.footer-menu-list {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.footer-menu-list li a {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 0.8125rem;
+	color: #c4e5c9;
+}
+
+.footer-menu-list .chevron {
+	color: #2ca756;
+	font-weight: 900;
+}
+
+.footer-brand-logo {
+	margin-bottom: 16px;
+}
+
+.adidas-wordmark {
+	font-family: var(--wpbc-font-heading);
+	font-size: 2.4rem;
+	font-weight: 900;
+	color: #ffffff;
+	letter-spacing: -1px;
+}
+
+.footer-legal {
+	font-size: 0.75rem;
+	line-height: 1.6;
+	color: #8bbd94;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.footer-legal a {
+	color: #d1ead6;
+	text-decoration: underline;
+}
+
+.footer-disclaimer-bar {
+	background-color: #04140a;
+	padding: 14px 0;
+	border-top: 1px solid rgba(255, 255, 255, 0.05);
+	font-size: 0.6875rem;
+	color: #729b79;
+	line-height: 1.5;
+}
+
+/* ==============================================================
+   10. VIDEO MODAL POPUP
+   ============================================================== */
+.wpbc-modal-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.85);
+	z-index: 9999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+}
+
+.video-modal-dialog {
+	position: relative;
+	width: 100%;
+	max-width: 800px;
+	background-color: #000000;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+}
+
+.video-modal-close {
+	position: absolute;
+	top: -40px;
+	right: 0;
+	background: none;
+	border: none;
+	color: #ffffff;
+	font-size: 2.2rem;
+	cursor: pointer;
+	line-height: 1;
+}
+
+.video-iframe-container {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 aspect ratio */
+	height: 0;
+	overflow: hidden;
+}
+
+.video-iframe-container iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: 0;
+}
+
+/* ==============================================================
+   11. GENERIC PAGE & ARCHIVE STYLES
+   ============================================================== */
+.generic-page-main,
+.single-post-main,
+.default-page-main,
+.archive-main,
+.search-results-main,
+.error-404-main {
+	padding: 40px 0;
+}
+
+.page-entry-header {
+	margin-bottom: 30px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	padding-bottom: 16px;
+}
+
+.page-title {
+	font-family: var(--wpbc-font-heading);
+	font-size: 2.2rem;
+	font-weight: 900;
+	color: #ffffff;
+	text-transform: uppercase;
+}
+
+.posts-archive-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 24px;
+	margin-bottom: 30px;
+}
+
+.archive-post-card {
+	padding: 20px;
+}
+
+.post-meta-line {
+	font-size: 0.75rem;
+	color: #9eccaa;
+	margin-bottom: 10px;
+}
+
+.single-post-article {
+	background-color: var(--wpbc-bg-card);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	padding: 30px;
+}
+
+.single-post-article .entry-title {
+	font-family: var(--wpbc-font-heading);
+	font-size: 2rem;
+	color: #ffffff;
+	margin-bottom: 10px;
+}
+
+.single-post-article .entry-meta {
+	font-size: 0.8125rem;
+	color: #9eccaa;
+	margin-bottom: 20px;
+}
+
+.single-post-featured-img {
+	margin-bottom: 24px;
+}
+
+.single-post-article .entry-content {
+	font-size: 1rem;
+	line-height: 1.8;
+	color: #d8eedb;
+}
+
+.single-post-article .entry-content p {
+	margin-bottom: 1.4em;
+}
+
+/* 404 Page */
+.error-404-wrapper {
+	text-align: center;
+	max-width: 600px;
+	margin: 60px auto;
+	background-color: var(--wpbc-bg-card);
+	padding: 40px;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.error-badge {
+	font-family: var(--wpbc-font-heading);
+	font-size: 5rem;
+	font-weight: 900;
+	color: #2ca756;
+	line-height: 1;
+	margin-bottom: 10px;
+}
+
+.error-description {
+	margin-bottom: 24px;
+	color: #d1ead6;
+}
+
+.error-search-box {
+	margin-bottom: 24px;
+}
+
